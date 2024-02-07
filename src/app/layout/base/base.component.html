@@ -3,26 +3,38 @@
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side"  disableClose="true" opened="true">
         <!--Sidenav content-->
-        <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn" style="margin: 10px;">
-            <mat-icon aria-label="Menu">menu</mat-icon>
+        <button mat-icon-button (click)="isExpanded = !isExpanded" color="secondary" style="margin: 10px;">
+            <mat-icon aria-label="Toggle Sidenav">{{ isExpanded ? "arrow_backward" : "menu"}}</mat-icon>
         </button>
         
         <mat-nav-list>
             <mat-list-item>
-                <mat-icon mat-list-icon>person</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Management A</h4>
+                <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
+                    <img src="./assets/images/icons/sidenav/Home.png" class="sidenav-icons"
+                        [class.mr-1]="isExpanded">
+                    <h4 mat-line *ngIf="isExpanded" class="text-accent">Home</h4>
+                </div>                
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon>assignment</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Management B</h4>
+                <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
+                    <img src="./assets/images/icons/sidenav/HomeAutomation.png" class="sidenav-icons"
+                        [class.mr-1]="isExpanded">
+                    <h4 mat-line *ngIf="isExpanded" class="text-accent">eOps Home</h4>
+                </div>                
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon>domain</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Management C</h4>
+                <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
+                    <img src="./assets/images/icons/sidenav/Info.png" class="sidenav-icons"
+                        [class.mr-1]="isExpanded">
+                    <h4 mat-line *ngIf="isExpanded" class="text-accent">eOps Info</h4>
+                </div>
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder_shared</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Management X</h4>
+                <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
+                    <img src="./assets/images/icons/sidenav/Help.png" class="sidenav-icons"
+                        [class.mr-1]="isExpanded">
+                    <h4 mat-line *ngIf="isExpanded" class="text-accent">Help</h4>
+                </div>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>

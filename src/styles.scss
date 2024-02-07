@@ -4,6 +4,16 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+// CUSTOM FONT
+@font-face {
+  font-family: 'inter-font';
+  src: url('assets/fonts/Inter/Inter-Regular.ttf');
+}
+
+$inter-typography: mat.define-typography-config(
+ $font-family: "inter-font"
+);
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -44,7 +54,7 @@ $md-fdxprimary: (
     )
 );
 
-$md-fdxsecondary: (
+$md-fdxaccent: (
     50 : #ffede0,
     100 : #ffd1b3,
     200 : #ffb380,
@@ -60,34 +70,20 @@ $md-fdxsecondary: (
     A400 : #ffc9bf,
     A700 : #ffb4a6,
     contrast: (
-        50 : #ffffff,
-        100 : #ffffff,
-        200 : #ffffff,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
         700 : #ffffff,
         800 : #ffffff,
         900 : #ffffff,
-        A100 : #ffffff,
-        A200 : #ffffff,
-        A400 : #ffffff,
-        A700 : #ffffff,
-        // 50 : #000000,
-        // 100 : #000000,
-        // 200 : #000000,
-        // 300 : #000000,
-        // 400 : #000000,
-        // 500 : #000000,
-        // 600 : #000000,
-        // 700 : #ffffff,
-        // 800 : #ffffff,
-        // 900 : #ffffff,
-        // A100 : #000000,
-        // A200 : #000000,
-        // A400 : #000000,
-        // A700 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
     )
 );
 
@@ -100,7 +96,7 @@ $reject-ui-primary: mat.define-palette($md-fdxprimary);
 
 // TODO fix which is next most used color to accent or secondary palette (naming convention)
 // $reject-ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$reject-ui-accent: mat.define-palette($md-fdxsecondary);
+$reject-ui-accent: mat.define-palette($md-fdxaccent);
 
 // The warn palette is optional (defaults to red).
 $reject-ui-warn: mat.define-palette(mat.$red-palette);
@@ -112,7 +108,8 @@ $reject-ui-theme: mat.define-light-theme((
     primary: $reject-ui-primary,
     accent: $reject-ui-accent,
     warn: $reject-ui-warn,
-  )
+  ),
+  typography: $inter-typography,
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -124,7 +121,61 @@ $reject-ui-theme: mat.define-light-theme((
 /* Global Custom Styles */
 
 html, body { min-height: 100vh; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
+body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
+
+/* TODO add bootstrap for style classes - Bootstrap Alternative styles */
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-{
+  &center {
+    justify-content: center;
+  }
+}
+
+.align-items-{
+  &center {
+    align-items: center;
+  }
+}
+
+.m {
+  &l- {
+    &1 {
+      margin-left: 1rem;
+    }
+  }
+  &r- {
+    &1 {
+      margin-right: 1rem;
+    }
+  }
+}
+
+/* TODO : setup primary, accent colors as css variables to use everywhere */
+.text- {
+  &primary {
+    color: #4d148c;
+  }
+  &accent {
+    color: #ff6600;
+  }
+}
+
+/* TODO : setup primary, accent colors as css variables to use everywhere */
+.bg- {
+  &primary {
+    background-color: #4d148c;
+  } 
+  &accent {
+   background-color: #ff6600;
+  } 
+}
+
+/* Bootstrap Alternative styles ends */
 
 .mat-mdc-raised-button {
   color: white !important;
@@ -133,8 +184,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* TODO : set background color through palette color */
 .mat-drawer {
   background-color: #4D148C1A !important;
+  border: none !important;
 }
 
 mat-drawer-container {
   min-height: 100vh;
+  background-color: #eaeaea !important;
+}
+
+.sidenav-icons {
+  width: 30px;
+  height: 28px;
+}
+
+.mat-toolbar {
+  height: 120px !important;
+}
+
+.header-logo {
+  height: 40px;
+  margin-left: 0.5rem;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
 }
