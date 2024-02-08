@@ -1,3 +1,21 @@
 <mat-toolbar color="primary">
     <img src="./assets/images/logos/logo-header.png" class="header-logo" />
+    <form class="header-search-form">
+          <img src="./assets/images/icons/navbar/search-icon.png"/>
+          <input type="text"
+                 aria-label="Search"
+                 matNativeControl
+                 [formControl]="searchControl"
+                 [matAutocomplete]="auto"
+                 class="header-searchbar">
+          <mat-autocomplete #auto="matAutocomplete">
+            @for (option of options; track option) {
+              <mat-option [value]="option">{{option}}</mat-option>
+            }
+          </mat-autocomplete>
+      </form>
+      <div class="header-user-info-container d-flex align-items-center">
+        <h4>Jeffrey J Smith</h4>
+        <img class="ml-1" src="./assets/images/icons/navbar/user-icon.png"/>
+      </div>
 </mat-toolbar>

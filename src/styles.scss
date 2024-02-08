@@ -120,11 +120,24 @@ $reject-ui-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 /* Global Custom Styles */
 
+/* Root variables to use throughout application */
+
+:root {
+  --primary: #4d148c;
+  --accent: #ff6600;
+}
+
 html, body { min-height: 100vh; }
 body { margin: 0; }
 body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
 
 /* TODO add bootstrap for style classes - Bootstrap Alternative styles */
+
+.w- {
+  &100 {
+    width: 100%;
+  }
+}
 
 .d-flex {
   display: flex !important;
@@ -133,6 +146,12 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
 .justify-content-{
   &center {
     justify-content: center;
+  }
+  &between {
+    justify-content: space-between;
+  }
+  &around {
+    justify-content: space-around;
   }
 }
 
@@ -147,10 +166,38 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
     &1 {
       margin-left: 1rem;
     }
+    &s1 {
+      margin-left: 0.3rem;
+    }
   }
   &r- {
     &1 {
       margin-right: 1rem;
+    }
+    &s1 {
+      margin-right: 0.3rem;
+    }
+  }
+  &t- {
+    &1 {
+      margin-top: 1rem;
+    }
+    &s1 {
+      margin-top: 0.3rem;
+    }
+    &2 {
+      margin-top: 1.5rem;
+    }
+  }
+  &b- {
+    &1 {
+      margin-bottom: 1rem;
+    }
+    &s1 {
+      margin-bottom: 0.3rem;
+    }
+    &2 {
+      margin-bottom: 1.5rem;
     }
   }
 }
@@ -158,20 +205,20 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
 /* TODO : setup primary, accent colors as css variables to use everywhere */
 .text- {
   &primary {
-    color: #4d148c;
+    color: var(--primary);
   }
   &accent {
-    color: #ff6600;
+    color: var(--accent);
   }
 }
 
 /* TODO : setup primary, accent colors as css variables to use everywhere */
 .bg- {
   &primary {
-    background-color: #4d148c;
+    background-color: var(--primary);
   } 
   &accent {
-   background-color: #ff6600;
+   background-color: var(--accent);
   } 
 }
 
@@ -187,6 +234,27 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
   border: none !important;
 }
 
+.mat-expansion-panel {
+  border-radius: 0 !important;
+  border-bottom-left-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  .mat-expansion-panel-header {
+    height: 30px !important;
+    border-radius: 0 !important;
+    background-color: var(--primary) !important;
+    .mat-expansion-indicator {
+      &::after {
+        color: white !important;
+      }
+    }
+    .mat-expansion-panel-header-title{
+      color: white !important;
+    }
+  }
+}
+
 mat-drawer-container {
   min-height: 100vh;
   background-color: #eaeaea !important;
@@ -199,14 +267,77 @@ mat-drawer-container {
 
 .mat-toolbar {
   height: 120px !important;
-}
-
-.header-logo {
-  height: 40px;
-  margin-left: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container {
   background-color: white;
   padding: 20px;
+}
+
+.header- { 
+  &logo {
+    height: 40px;
+    margin-left: 0.5rem;
+  }
+  &search-form {
+    position: relative;
+    &>img{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      bottom: 0;
+      top: 0;
+      left: 0.5rem;
+      margin: auto;
+    }
+  } 
+  &searchbar {
+    background-color: var(--primary);
+    border: 2px solid white;
+    border-radius: 100px;
+    height: 30px;
+    outline: none;
+    color: white;
+    padding-left: 32px;
+    width: 25vw;
+    &:focus-visible {
+      outline: none;
+    }
+    &::before {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 0;
+      right: 0;
+    }
+  }
+  &user-info-container {
+    &>img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.fdx- {
+  &button {
+    border-radius: 0 !important;
+    color: white !important;
+    min-width: 100px !important;
+    &.curved {
+      height: 22px !important;
+      border-radius: 6px !important;
+    }
+  }
+  &input {
+    padding: 8px 12px;
+    border: 2px solid rgba(0,0,0,0.2);
+    width: 20vw;
+    outline: none;
+    &:focus-visible {
+      outline: none;
+    }
+  }
 }

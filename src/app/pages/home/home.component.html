@@ -1,3 +1,47 @@
 <div class="container">
     <h2 class="text-primary">Reject Queue</h2>
+    <form class="location-search-form mb-2">
+        <input type="text"
+            placeholder="LOCATION CODE"
+            aria-label="Location Code"
+            matNativeControl
+            [formControl]="locationControl"
+            class="fdx-input mr-s1">
+        <button mat-flat-button color="accent fdx-button">SEARCH</button>      
+    </form>
 </div>
+
+<!-- <div class="example-action-buttons">
+    <button mat-button (click)="accordion?.openAll()">Expand All</button>
+    <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
+</div> -->
+<mat-accordion class="fdx-accordian" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Query Rejection Scan
+            </mat-panel-title>
+            <!-- <mat-panel-description></mat-panel-description> -->
+        </mat-expansion-panel-header>
+    
+        <!-- <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" min="1">
+        </mat-form-field> -->
+
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <p>Location ID</p>
+            <p>From Date</p>
+            <p>To Date</p>
+            <p>FedEx ID</p>
+            <p>Org CD</p>
+            <button mat-flat-button color="accent fdx-button curved">SUBMIT</button>
+        </div>
+    
+    </mat-expansion-panel>
+</mat-accordion>

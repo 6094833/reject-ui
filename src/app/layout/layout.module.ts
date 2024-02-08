@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BaseComponent } from './base/base.component';
 import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../modules/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,9 @@ import { MaterialModule } from '../modules/material/material.module';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LayoutModule { }
