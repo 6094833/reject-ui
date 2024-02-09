@@ -7,41 +7,53 @@
             matNativeControl
             [formControl]="locationControl"
             class="fdx-input mr-s1">
-        <button mat-flat-button color="accent fdx-button">SEARCH</button>      
+        <button (click) = "onLocationCodeSearch()" mat-flat-button color="accent fdx-button">SEARCH</button>      
     </form>
 </div>
 
-<!-- <div class="example-action-buttons">
-    <button mat-button (click)="accordion?.openAll()">Expand All</button>
-    <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
-</div> -->
-<mat-accordion class="fdx-accordian" multi>
-    <mat-expansion-panel>
+<mat-accordion *ngIf="isLocationSearched" class="fdx-accordian" multi>
+    <mat-expansion-panel expanded = "true">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Query Rejection Scan
             </mat-panel-title>
-            <!-- <mat-panel-description></mat-panel-description> -->
         </mat-expansion-panel-header>
-    
-        <!-- <mat-form-field>
-            <mat-label>First name</mat-label>
-            <input matInput>
-        </mat-form-field>
-    
-        <mat-form-field>
-            <mat-label>Age</mat-label>
-            <input matInput type="number" min="1">
-        </mat-form-field> -->
 
-        <div class="d-flex justify-content-between align-items-center w-100">
-            <p>Location ID</p>
-            <p>From Date</p>
-            <p>To Date</p>
-            <p>FedEx ID</p>
-            <p>Org CD</p>
-            <button mat-flat-button color="accent fdx-button curved">SUBMIT</button>
-        </div>
+        <form [formGroup] = "queryRejectScanForm" (submit) = "queryRejectScanFormOnSubmit()">
+            <div class="d-flex flex-column">
+                <input type="text"
+                    placeholder="Location ID"
+                    aria-label="Location ID"
+                    matNativeControl
+                    formControlName = "locationId"
+                    class="fdx-input curved mt-1">
+                <input type="text"
+                    placeholder="*From Date"
+                    aria-label="From Date"
+                    matNativeControl
+                    formControlName = "fromDate"
+                    class="fdx-input curved mt-1">
+                <input type="text"
+                    placeholder="*To Date"
+                    aria-label="To Date"
+                    matNativeControl
+                    formControlName = "toDate"
+                    class="fdx-input curved mt-1">
+                <input type="text"
+                    placeholder="FedEx ID"
+                    aria-label="FedEx ID"
+                    matNativeControl
+                    formControlName = "fedexId"
+                    class="fdx-input curved mt-1">
+                <input type="text"
+                    placeholder="Org CD"
+                    aria-label="Org CD"
+                    matNativeControl
+                    formControlName = "orgCd"
+                    class="fdx-input curved mt-1">
+                <button type="submit" mat-flat-button color="accent fdx-button curved mt-1">SUBMIT</button>
+            </div>
+        </form>       
     
     </mat-expansion-panel>
 </mat-accordion>

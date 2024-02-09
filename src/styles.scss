@@ -143,6 +143,15 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
   display: flex !important;
 }
 
+.flex- {
+  &column {
+    flex-direction: column;
+  }
+  &row {
+    flex-direction: row;
+  }
+}
+
 .justify-content-{
   &center {
     justify-content: center;
@@ -329,13 +338,19 @@ mat-drawer-container {
     &.curved {
       height: 22px !important;
       border-radius: 6px !important;
+      width: 100px !important;
     }
   }
   &input {
     padding: 8px 12px;
     border: 2px solid rgba(0,0,0,0.2);
-    width: 20vw;
+    width: 15vw;
     outline: none;
+    &.curved {
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 6px !important;
+      height: 10px !important;
+    }
     &:focus-visible {
       outline: none;
     }
