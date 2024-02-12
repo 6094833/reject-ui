@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +16,8 @@ export class HomeComponent {
   isLocationSearched:boolean;
 
   public constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.isLocationSearched = false;
     this.locationControl = new FormControl("", Validators.required);
@@ -34,6 +36,7 @@ export class HomeComponent {
       return;
     } 
     console.log("Form values : ", this.queryRejectScanForm.value);
+    this.router.navigate(['/home/summary']);
   }
 
   onLocationCodeSearch() {

@@ -344,8 +344,12 @@ mat-drawer-container {
   &input {
     padding: 8px 12px;
     border: 2px solid rgba(0,0,0,0.2);
-    width: 15vw;
     outline: none;
+    width: 15vw;
+    &.row-header {
+      width: 15vw;
+      width: 100px;
+    }
     &.curved {
       border: 1px solid rgba(0,0,0,0.2);
       border-radius: 6px !important;
@@ -356,3 +360,30 @@ mat-drawer-container {
     }
   }
 }
+
+// TABS
+.mdc-tab {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: white !important;
+  border: 2px solid var(--primary) !important;
+  flex-grow: 0 !important;
+  .mdc-tab__content {
+    width: 100%;
+    >.mdc-tab__text-label {
+      width: 100%;
+      justify-content: space-between;
+      color: var(--primary) !important;
+      >span.tab-label {
+        font-size: 16px;
+      }
+    }
+  }
+  &.mdc-tab--active {
+    background-color: var(--primary) !important;    
+    .mdc-tab__text-label {
+      color: white !important;
+    }
+  }
+}
+

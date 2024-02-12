@@ -18,11 +18,11 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path : '**',
-    redirectTo: '', // TODO : Should redirect to wildcard page
-    pathMatch : 'full'
-  }
+  // {
+  //   path : '**',
+  //   redirectTo: '', // TODO : Should redirect to wildcard page
+  //   pathMatch : 'full'
+  // }
 ];
 
 @NgModule({
