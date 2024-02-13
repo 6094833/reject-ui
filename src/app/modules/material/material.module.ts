@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [],
@@ -28,7 +30,9 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatExpansionModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h2 class="text-primary">Reject Queue</h2>
     <form class="location-search-form mb-2">
         <input type="text"
@@ -9,7 +9,7 @@
             class="fdx-input mr-s1">
         <button (click) = "onLocationCodeSearch()" mat-flat-button color="accent fdx-button">SEARCH</button>      
     </form>
-</div>
+</div> -->
 
 <mat-accordion *ngIf="isLocationSearched" class="fdx-accordian" multi>
     <mat-expansion-panel expanded = "true">
@@ -27,18 +27,31 @@
                     matNativeControl
                     formControlName = "locationId"
                     class="fdx-input curved mt-1">
-                <input type="text"
+
+                <div>
+                    <input type="text"
                     placeholder="*From Date"
                     aria-label="From Date"
                     matNativeControl
+                    [matDatepicker]="fromPicker"
                     formControlName = "fromDate"
                     class="fdx-input curved mt-1">
-                <input type="text"
+                    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #fromPicker></mat-datepicker>
+                </div>
+                
+                <div>
+                    <input type="text"
                     placeholder="*To Date"
                     aria-label="To Date"
                     matNativeControl
                     formControlName = "toDate"
+                    [matDatepicker]="toPicker"
                     class="fdx-input curved mt-1">
+                    <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #toPicker></mat-datepicker>
+                </div>
+
                 <input type="text"
                     placeholder="FedEx ID"
                     aria-label="FedEx ID"

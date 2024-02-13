@@ -3,48 +3,48 @@
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side"  disableClose="true" opened="true">
         <!--Sidenav content-->
-        <button mat-icon-button (click)="isExpanded = !isExpanded" color="secondary" style="margin: 10px;">
+        <button mat-icon-button (click)="isExpanded = !isExpanded" color="secondary" [ngStyle]="{'margin': !isExpanded ? '10px':'inherit'}">
             <mat-icon aria-label="Toggle Sidenav">{{ isExpanded ? "arrow_backward" : "menu"}}</mat-icon>
         </button>
         
         <mat-nav-list>
-            <mat-list-item>
+            <mat-list-item [routerLink]="'/home'" *ngIf="isExpanded" >
+                <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">                    
+                    <h4 mat-line [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-accent">Reject Queue</h4>
+                </div>                
+            </mat-list-item>
+            <mat-list-item [routerLink]="'/home'">
                 <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
                     <img src="./assets/images/icons/sidenav/Home.png" class="sidenav-icons"
                         [class.mr-1]="isExpanded">
-                    <h4 mat-line *ngIf="isExpanded" class="text-accent">Home</h4>
+                    <h4 mat-line *ngIf="isExpanded">Home</h4>
                 </div>                
             </mat-list-item>
             <mat-list-item>
                 <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
                     <img src="./assets/images/icons/sidenav/HomeAutomation.png" class="sidenav-icons"
                         [class.mr-1]="isExpanded">
-                    <h4 mat-line *ngIf="isExpanded" class="text-accent">eOps Home</h4>
+                    <h4 mat-line *ngIf="isExpanded" routerLinkActive="text-accent">eOps Home</h4>
                 </div>                
             </mat-list-item>
             <mat-list-item>
                 <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
                     <img src="./assets/images/icons/sidenav/Info.png" class="sidenav-icons"
                         [class.mr-1]="isExpanded">
-                    <h4 mat-line *ngIf="isExpanded" class="text-accent">eOps Info</h4>
+                    <h4 mat-line *ngIf="isExpanded" routerLinkActive="text-accent">eOps Info</h4>
                 </div>
             </mat-list-item>
             <mat-list-item>
                 <div class="d-flex align-items-center" [class.justify-content-center]="!isExpanded">
                     <img src="./assets/images/icons/sidenav/Help.png" class="sidenav-icons"
                         [class.mr-1]="isExpanded">
-                    <h4 mat-line *ngIf="isExpanded" class="text-accent">Help</h4>
+                    <h4 mat-line *ngIf="isExpanded" routerLinkActive="text-accent">Help</h4>
                 </div>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
 
     <div class="sidenav-content">
-        <!--Main Content-->
-        <!-- Toggle button logic for closing sidenav completely -->
-        <!-- <button color="accent" type="button" mat-raised-button (click)="drawer.toggle()">
-            Toggle sidenav
-        </button> -->
         <router-outlet></router-outlet>
     </div>
 

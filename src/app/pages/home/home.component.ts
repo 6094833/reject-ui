@@ -19,7 +19,7 @@ export class HomeComponent {
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.isLocationSearched = false;
+    this.isLocationSearched = true; // TODO : to remove this constraint to show Query Rejection Scan
     this.locationControl = new FormControl("", Validators.required);
     this.queryRejectScanForm = this.fb.group({
       locationId : [""],

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Summary } from '../../../constants/constants';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-rejected-scan-summary',
@@ -7,7 +8,7 @@ import { Summary } from '../../../constants/constants';
   styleUrl: './rejected-scan-summary.component.scss'
 })
 export class RejectedScanSummaryComponent {
-  tabs = ['Rejected Scan Result', '0005275418'];
+  tabs = ['Rejected Scan Result'];
   selectedIndex:number = 0;
   displayedColumns: string[] = ['row', 'scanDate','locationId','fedexId','orgCd','rejectReason','rejectCount','totalCount'];
   displayedActionColumns: string[] = this.displayedColumns.map(col => col + '-action');
@@ -39,5 +40,15 @@ export class RejectedScanSummaryComponent {
   removeTab(index: number) {
     this.tabs.splice(index, 1);
     this.selectedIndex = index;
+  }
+
+  onRowClicked(summary:Summary) {
+    console.log("Clicked Row : ",summary);
+    this.tabs.push(`${this.tabs.length - 1}005275418`);
+    this.selectedIndex = this.tabs.length - 1;
+  }
+
+  handlePageEvent(e: PageEvent) {
+    console.log("Page Changed Event : ",e);
   }
 }

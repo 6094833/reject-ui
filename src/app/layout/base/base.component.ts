@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './base.component.scss'
 })
 export class BaseComponent {
-  public isExpanded:boolean = false;
+  public isExpanded:boolean = true;
 }
