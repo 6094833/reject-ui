@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Summary } from '../../../constants/constants';
+import { Summary, Breakdown } from '../../../constants/constants';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -11,8 +11,9 @@ export class RejectedScanSummaryComponent {
   tabs = ['Rejected Scan Result'];
   selectedIndex:number = 0;
   displayedColumns: string[] = ['row', 'scanDate','locationId','fedexId','orgCd','rejectReason','rejectCount','totalCount'];
-  displayedActionColumns: string[] = this.displayedColumns.map(col => col + '-action');
+  displayedBreakdownColumns: string[] = ['row', 'scanType','exceprionCd','rejectCount','status'];
   summaries: Summary[] = [];
+  breakdowns: Breakdown[] = [];
 
   public constructor() {
     for(var i = 1; i<=10; i++) {
@@ -25,6 +26,15 @@ export class RejectedScanSummaryComponent {
         rejectReason: "Some reason for " + i,
         rejectCount: 10,
         totalCount: 26
+      });
+    }
+    for(var i = 1; i<=4; i++) {
+      this.breakdowns.push({
+        row: i,
+        scanType: "SIPS",
+        exceprionCd: "",
+        rejectCount: 1,
+        status: "Unproccessed"
       });
     }
   }

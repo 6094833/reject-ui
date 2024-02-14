@@ -125,6 +125,8 @@ $reject-ui-theme: mat.define-light-theme((
 :root {
   --primary: #4d148c;
   --accent: #ff6600;
+  --mdc-snackbar-container-color: var(--primary);
+  --mdc-list-list-item-label-text-color: #404040de;
 }
 
 html, body { min-height: 100vh; }
@@ -139,8 +141,22 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
   }
 }
 
-.d-flex {
-  display: flex !important;
+.d- {
+  &flex {
+    display: flex !important;
+  }
+  &inline-block {
+    display: inline-block !important;
+  }
+}
+
+.position- {
+  &absolute {
+    position: absolute !important;
+  }
+  &relative {
+    position: relative !important;
+  }
 }
 
 .flex- {
@@ -168,6 +184,10 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
   &center {
     align-items: center;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .m {
@@ -211,13 +231,15 @@ body { margin: 0; font-family: 'inter-font', "Helvetica Neue", sans-serif; }
   }
 }
 
-/* TODO : setup primary, accent colors as css variables to use everywhere */
 .text- {
   &primary {
     color: var(--primary);
   }
   &accent {
     color: var(--accent);
+  }
+  &muted {
+    color: #5e5e5e;
   }
 }
 
@@ -387,8 +409,10 @@ mat-drawer-container {
 }
 
 // TABLES
-
 .mat-mdc-table {
+  .mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0px 10px;
+  }
   tr {
     &:not(.mat-mdc-header-row){
       cursor: pointer;
@@ -402,6 +426,25 @@ mat-drawer-container {
     .mat-mdc-header-cell,
     .mat-mdc-cell {
       text-align: center !important;
+      border: 1px solid #dedede;
     }
   } 
 }
+
+.mat-datepicker-toggle {
+  >.mdc-icon-button {
+    padding: 0;
+    height: 26px;
+    width: 26px;
+  }
+  .mat-datepicker-toggle-default-icon {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  &.fdx-date-toggle {
+    position: absolute;
+    right: 4px;
+    bottom: -1px;
+  }
+}
+

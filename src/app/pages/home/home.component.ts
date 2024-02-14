@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { MatAccordion } from '@angular/material/expansion';
 import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +18,8 @@ export class HomeComponent {
 
   public constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.isLocationSearched = true; // TODO : to remove this constraint to show Query Rejection Scan
     this.locationControl = new FormControl("", Validators.required);
@@ -33,6 +35,9 @@ export class HomeComponent {
   queryRejectScanFormOnSubmit() {
     if(!this.queryRejectScanForm.valid) {
       console.log("Enter all required fields!");
+      this.snackBar.open("Enter all required fields!","Okay",{
+        duration: 3000
+      });
       return;
     } 
     console.log("Form values : ", this.queryRejectScanForm.value);

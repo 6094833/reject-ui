@@ -10,90 +10,116 @@
         </ng-template>
 
         <!-- TAB 1 -->
-        <div class="container" *ngIf="index == 0">
+        <div class="container" *ngIf="tab == 'Rejected Scan Result'">
             <span class="text-primary">Summary Result for Scan Date : 1/10/23 - 1/11/23</span>
         </div>
         <!-- https://stackoverflow.com/questions/59719985/angular-material-table-add-dynamic-column-headers -->
 
-        <table mat-table [dataSource]="summaries" class="mat-elevation-z0" *ngIf="index == 0">
+        <table mat-table [dataSource]="summaries" class="mat-elevation-z0" *ngIf="tab == 'Rejected Scan Result'">
             <ng-container matColumnDef="row">
-                <th mat-header-cell *matHeaderCellDef> Row </th>
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <span>Row</span> 
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png"> 
+                    </div> 
+                </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.row}} </td>
             </ng-container>
 
             <ng-container matColumnDef="scanDate">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Scan Date"
-                        aria-label="Scan Date"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Scan Date"
+                            aria-label="Scan Date"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.scanDate}} </td>
             </ng-container>
 
             <ng-container matColumnDef="locationId">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Location ID"
-                        aria-label="Location ID"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Location ID"
+                            aria-label="Location ID"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.locationId}} </td>
             </ng-container>
 
             <ng-container matColumnDef="fedexId">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="FedEx ID"
-                        aria-label="FedEx ID"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="FedEx ID"
+                            aria-label="FedEx ID"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.fedexId}} </td>
             </ng-container>
 
             <ng-container matColumnDef="orgCd">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Org Cd"
-                        aria-label="Org Cd"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Org Cd"
+                            aria-label="Org Cd"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.orgCd}} </td>
             </ng-container>
 
             <ng-container matColumnDef="rejectReason">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Reject Reason"
-                        aria-label="Reject Reason"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Reject Reason"
+                            aria-label="Reject Reason"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.rejectReason}} </td>
             </ng-container>
 
             <ng-container matColumnDef="rejectCount">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Reject Count"
-                        aria-label="Reject Count"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Reject Count"
+                            aria-label="Reject Count"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>                    
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.rejectCount}} </td>
             </ng-container>
 
             <ng-container matColumnDef="totalCount">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
                         placeholder="Total Count"
                         aria-label="Total Count"
                         matNativeControl
                         class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
                 </th>
                 <td mat-cell *matCellDef="let summary"> {{summary.totalCount}} </td>
             </ng-container>
@@ -114,8 +140,8 @@
         </table>
 
         <mat-paginator #paginator
-            *ngIf="index == 0"
-            class="fdx-paginator"
+            *ngIf="tab == 'Rejected Scan Result'"
+            class="fdx-paginator mt-1"
             (page)="handlePageEvent($event)"
             [length]="50"
             [pageSize]="10"
@@ -125,111 +151,84 @@
         </mat-paginator>
 
         <!-- REMAINING TABS -->
-        <div class="container" *ngIf="index != 0">
+        <div class="container" *ngIf="tab != 'Rejected Scan Result'">
             <span class="text-primary">Breakdown for fedex ID: 0005275418 Reject Reason: INVALID FEDEX (02)</span>
         </div>
 
-        <table mat-table [dataSource]="summaries" class="mat-elevation-z0" *ngIf="index == -1">
+        <table mat-table [dataSource]="breakdowns" class="mat-elevation-z0" *ngIf="tab != 'Rejected Scan Result'">
             <ng-container matColumnDef="row">
-                <th mat-header-cell *matHeaderCellDef> Row </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.row}} </td>
+                <th mat-header-cell *matHeaderCellDef> 
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <span>Row</span>
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let breakdown"> {{breakdown.row}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="scanDate">
+            <ng-container matColumnDef="scanType">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Scan Date"
-                        aria-label="Scan Date"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Scan Type"
+                            aria-label="Scan Type"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
                 </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.scanDate}} </td>
+                <td mat-cell *matCellDef="let breakdown"> {{breakdown.scanType}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="locationId">
+            <ng-container matColumnDef="exceprionCd">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Location ID"
-                        aria-label="Location ID"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Exceprion Cd"
+                            aria-label="Exceprion Cd"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
                 </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.locationId}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="fedexId">
-                <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="FedEx ID"
-                        aria-label="FedEx ID"
-                        matNativeControl
-                        class="fdx-input curved row-header">
-                </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.fedexId}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="orgCd">
-                <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Org Cd"
-                        aria-label="Org Cd"
-                        matNativeControl
-                        class="fdx-input curved row-header">
-                </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.orgCd}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="rejectReason">
-                <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Reject Reason"
-                        aria-label="Reject Reason"
-                        matNativeControl
-                        class="fdx-input curved row-header">
-                </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.rejectReason}} </td>
+                <td mat-cell *matCellDef="let breakdown"> {{breakdown.exceprionCd}} </td>
             </ng-container>
 
             <ng-container matColumnDef="rejectCount">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Reject Count"
-                        aria-label="Reject Count"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Reject Count"
+                            aria-label="Reject Count"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
                 </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.rejectCount}} </td>
+                <td mat-cell *matCellDef="let breakdown"> {{breakdown.rejectCount}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="totalCount">
+            <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef>
-                    <input type="text"
-                        placeholder="Total Count"
-                        aria-label="Total Count"
-                        matNativeControl
-                        class="fdx-input curved row-header">
+                    <div class="d-flex justify-content-center w-100 align-items-center">
+                        <input type="text"
+                            placeholder="Status"
+                            aria-label="Status"
+                            matNativeControl
+                            class="fdx-input curved row-header">
+                        <img width="12" height="12" class="ml-s1 cursor-pointer" src="./assets/images/icons/table/SortingArrows.png">
+                    </div>
                 </th>
-                <td mat-cell *matCellDef="let summary"> {{summary.totalCount}} </td>
+                <td mat-cell *matCellDef="let breakdown"> {{breakdown.status}} </td>
             </ng-container>
 
-            <!-- <ng-container matColumnDef="item-description">
-                <th mat-header-cell *matHeaderCellDef> Name of the item purchased </th>
-            </ng-container>
-
-            <ng-container matColumnDef="cost-description">
-                <th mat-header-cell *matHeaderCellDef> Cost of the item in USD </th>
-            </ng-container> -->
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <!-- <tr mat-header-row *matHeaderRowDef="displayedActionColumns" class="example-second-header-row">
-            </tr> -->
-
-            <tr mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedBreakdownColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedBreakdownColumns;"></tr>
         </table>
 
         <mat-paginator #paginator
-            *ngIf="index == -1"
-            class="fdx-paginator"
+            *ngIf="tab != 'Rejected Scan Result'"
+            class="fdx-paginator mt-1"
             (page)="handlePageEvent($event)"
             [length]="50"
             [pageSize]="10"

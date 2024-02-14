@@ -29,27 +29,31 @@
                     class="fdx-input curved mt-1">
 
                 <div>
-                    <input type="text"
-                    placeholder="*From Date"
-                    aria-label="From Date"
-                    matNativeControl
-                    [matDatepicker]="fromPicker"
-                    formControlName = "fromDate"
-                    class="fdx-input curved mt-1">
-                    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
-                    <mat-datepicker #fromPicker></mat-datepicker>
+                    <div class="d-inline-block position-relative">
+                        <input type="text"
+                        placeholder="*From Date"
+                        aria-label="From Date"
+                        matNativeControl
+                        [matDatepicker]="fromPicker"
+                        formControlName = "fromDate"
+                        class="fdx-input curved mt-1">
+                        <mat-datepicker-toggle class="fdx-date-toggle" matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #fromPicker></mat-datepicker>
+                    </div>
                 </div>
                 
                 <div>
-                    <input type="text"
-                    placeholder="*To Date"
-                    aria-label="To Date"
-                    matNativeControl
-                    formControlName = "toDate"
-                    [matDatepicker]="toPicker"
-                    class="fdx-input curved mt-1">
-                    <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
-                    <mat-datepicker #toPicker></mat-datepicker>
+                    <div class="d-inline-block position-relative">
+                        <input type="text"
+                        placeholder="*To Date"
+                        aria-label="To Date"
+                        matNativeControl
+                        formControlName = "toDate"
+                        [matDatepicker]="toPicker"
+                        class="fdx-input curved mt-1">
+                        <mat-datepicker-toggle class="fdx-date-toggle" matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #toPicker></mat-datepicker>
+                    </div>                    
                 </div>
 
                 <input type="text"
